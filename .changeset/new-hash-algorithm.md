@@ -1,4 +1,5 @@
 ---
+'@compiled/babel-plugin': major
 '@compiled/css': major
 '@compiled/react': major
 '@compiled/utils': major
