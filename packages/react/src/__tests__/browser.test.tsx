@@ -26,7 +26,7 @@ describe('browser', () => {
     const { baseElement } = render(<StyledDiv>hello world</StyledDiv>);
 
     expect(baseElement.innerHTML).toMatchInlineSnapshot(
-      `"<div><div class="_1wyb1fwx">hello world</div></div>"`
+      `"<div><div class="_3UwI_E6Icq">hello world</div></div>"`
     );
   });
 
@@ -43,7 +43,7 @@ describe('browser', () => {
     );
 
     expect(document.head.innerHTML).toMatchInlineSnapshot(
-      `"<style nonce="k0Mp1lEd">._1wybdlk8{font-size:14px}</style>"`
+      `"<style nonce="k0Mp1lEd">._3UwI_E0Ld3{font-size:14px}</style>"`
     );
   });
 
@@ -96,14 +96,8 @@ describe('browser', () => {
     render(<StyledLink href="https://atlassian.design">Atlassian Design System</StyledLink>);
 
     expect(document.head.innerHTML.split('</style>').join('</style>\n')).toMatchInlineSnapshot(`
-      "<style nonce="k0Mp1lEd">._1e0c1txw{display:flex}._1wyb12am{font-size:50px}._syaz1cnh{color:purple}</style>
-      <style nonce="k0Mp1lEd">._ysv75scu:link{color:red}._ysv71x77:link{color:white}</style>
-      <style nonce="k0Mp1lEd">._105332ev:visited{color:pink}</style>
-      <style nonce="k0Mp1lEd">._f8pjbf54:focus{color:green}</style>
-      <style nonce="k0Mp1lEd">._v0vw1x77:focus-visible{color:white}</style>
-      <style nonce="k0Mp1lEd">._30l31gy6:hover{color:yellow}</style>
-      <style nonce="k0Mp1lEd">._9h8h13q2:active{color:blue}</style>
-      <style nonce="k0Mp1lEd">@media (max-width:800px){._1o8z1gy6:focus{color:yellow}._jbabtwqo:focus-visible{color:grey}._6146twqo:hover{color:grey}._1cld11x8:active{color:black}}@supports (display:grid){._1df61gy6:focus{color:yellow}._7okp11x8:active{color:black}}</style>
+      "<style nonce="k0Mp1lEd">._2Qfcr9G8Oh{display:flex}._3UwI_E15Yp{font-size:50px}._1Emim_mcKz{color:purple}._1ZrpKzS_pl:link{color:red}._1LQ9a7pI5g:focus-visible{color:white}._1ZrpKzpI5g:link{color:white}._22gsiY3sd8:visited{color:pink}._0SXJg7ai4l:focus{color:green}._0aTL7QRo7r:hover{color:yellow}._0yanZOaLVw:active{color:blue}</style>
+      <style nonce="k0Mp1lEd">@media (max-width:800px){._3p9fKORo7r:focus{color:yellow}._15CSXZOXik:focus-visible{color:grey}._0lL788OXik:hover{color:grey}._2L8JiwHkrc:active{color:black}}@supports (display:grid){._2O7y4TRo7r:focus{color:yellow}._0rI57BHkrc:active{color:black}}</style>
       "
     `);
   });
