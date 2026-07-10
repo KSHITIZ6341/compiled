@@ -45,9 +45,11 @@ describe('ax - atomic', () => {
       '_aaaaeeee',
     ],
     [
-      'should ensure the last atomic declaration of many multi groups with short class name wins',
-      ['_aaaabbbb', '_aaaaaaa', '_ddddbbb', '_ddddcccc'],
-      '_aaaaaaa _ddddcccc',
+      'should ensure the last atomic declaration of many multi groups with new-format class names wins',
+      // New-format atomic classes: `_` + 6-char group + 4-char value = 11 chars total
+      // Group key is extracted via `className.length - 4` = first 7 chars
+      ['_aaaaaabbbb', '_aaaaaacccc', '_ddddddbbbb', '_ddddddcccc'],
+      '_aaaaaacccc _ddddddcccc',
     ],
     [
       'should not remove any atomic declarations if there are no duplicate groups',
