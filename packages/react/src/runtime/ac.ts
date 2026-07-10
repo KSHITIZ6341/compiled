@@ -1,6 +1,10 @@
-import { ATOMIC_GROUP_HASH_LENGTH } from '@compiled/utils';
-
 import { isServerEnvironment } from './is-server-environment.js';
+
+/**
+ * The length of the group hash portion of an atomic class name.
+ * Must stay in sync with ATOMIC_GROUP_HASH_LENGTH in @compiled/utils.
+ */
+const ATOMIC_GROUP_HASH_LENGTH = 6;
 
 const UNDERSCORE_UNICODE = 95;
 

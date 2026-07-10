@@ -17,7 +17,7 @@ describe('SSR', () => {
     const result = renderToStaticMarkup(<StyledDiv>hello world</StyledDiv>);
 
     expect(result).toMatchInlineSnapshot(
-      `"<style data-cmpld="true" nonce="k0Mp1lEd">._3UwI_E6Icq{font-size:12px}</style><div class="_3UwI_E6Icq">hello world</div>"`
+      `"<style data-cmpld="true" nonce="k0Mp1lEd">._4ya3eErjyG{font-size:12px}</style><div class="_4ya3eErjyG">hello world</div>"`
     );
   });
 
@@ -44,7 +44,7 @@ describe('SSR', () => {
     );
 
     expect(result).toMatchInlineSnapshot(
-      `"<style data-cmpld="true" nonce="k0Mp1lEd">._3UwI_E6Icq{font-size:12px}</style><div class="_3UwI_E6Icq">hello world</div><div class="_3UwI_E6Icq">hello world</div>"`
+      `"<style data-cmpld="true" nonce="k0Mp1lEd">._4ya3eErjyG{font-size:12px}</style><div class="_4ya3eErjyG">hello world</div><div class="_4ya3eErjyG">hello world</div>"`
     );
   });
 
@@ -68,7 +68,7 @@ describe('SSR', () => {
     );
 
     expect(result).toMatchInlineSnapshot(
-      `"<div><div><div><style data-cmpld="true" nonce="k0Mp1lEd">._3UwI_E6Icq{font-size:12px}</style><div class="_3UwI_E6Icq">hello world</div></div></div><div class="_3UwI_E6Icq">hello world</div></div>"`
+      `"<div><div><div><style data-cmpld="true" nonce="k0Mp1lEd">._4ya3eErjyG{font-size:12px}</style><div class="_4ya3eErjyG">hello world</div></div></div><div class="_4ya3eErjyG">hello world</div></div>"`
     );
   });
 
@@ -88,7 +88,7 @@ describe('SSR', () => {
     );
 
     expect(result).toMatchInlineSnapshot(
-      `"<style data-cmpld="true" nonce="k0Mp1lEd">._2Qfcr9G8Oh{display:flex}</style><div class="_2Qfcr9G8Oh"><style data-cmpld="true" nonce="k0Mp1lEd">._3UwI_E6Icq{font-size:12px}</style><div class="_3UwI_E6Icq">hello world</div><div class="_3UwI_E6Icq">hello world</div></div>"`
+      `"<style data-cmpld="true" nonce="k0Mp1lEd">._3iDTPbQ4SZ{display:flex}</style><div class="_3iDTPbQ4SZ"><style data-cmpld="true" nonce="k0Mp1lEd">._4ya3eErjyG{font-size:12px}</style><div class="_4ya3eErjyG">hello world</div><div class="_4ya3eErjyG">hello world</div></div>"`
     );
   });
 
@@ -135,8 +135,8 @@ describe('SSR', () => {
     );
 
     expect(result.split('</style>').join('</style>\n')).toMatchInlineSnapshot(`
-      "<style data-cmpld="true" nonce="k0Mp1lEd">._2Qfcr9G8Oh{display:flex}._3UwI_E15Yp{font-size:50px}._1Emim_mcKz{color:purple}._1ZrpKzS_pl:link{color:red}._22gsiY3sd8:visited{color:pink}._0SXJg7ai4l:focus{color:green}._0aTL7QRo7r:hover{color:yellow}._0yanZOaLVw:active{color:blue}@media (max-width:800px){._3p9fKORo7r:focus{color:yellow}._2L8JiwHkrc:active{color:black}}@supports (display:grid){._2O7y4TRo7r:focus{color:yellow}._0rI57BHkrc:active{color:black}}</style>
-      <a href="https://atlassian.design" class="_2Qfcr9G8Oh _3UwI_E15Yp _1Emim_mcKz _1ZrpKzS_pl _22gsiY3sd8 _0SXJg7ai4l _0aTL7QRo7r _0yanZOaLVw _3p9fKORo7r _2L8JiwHkrc _2O7y4TRo7r _0rI57BHkrc">Atlassian Design System</a>"
+      "<style data-cmpld="true" nonce="k0Mp1lEd">._3iDTPbQ4SZ{display:flex}._4ya3eEHMkp{font-size:50px}._1UtDYz5CUP{color:purple}._2ipzJpGowl:link{color:red}._2nTuUYy8mA:visited{color:pink}._10n1R5Jwxv:focus{color:green}._0clgaMFQV5:hover{color:yellow}._0CMRbkynoA:active{color:blue}@media (max-width:800px){._3YxZqqFQV5:focus{color:yellow}._3cQMScbqW0:active{color:black}}@supports (display:grid){._3geGi3FQV5:focus{color:yellow}._0vra6NbqW0:active{color:black}}</style>
+      <a href="https://atlassian.design" class="_3iDTPbQ4SZ _4ya3eEHMkp _1UtDYz5CUP _2ipzJpGowl _2nTuUYy8mA _10n1R5Jwxv _0clgaMFQV5 _0CMRbkynoA _3YxZqqFQV5 _3cQMScbqW0 _3geGi3FQV5 _0vra6NbqW0">Atlassian Design System</a>"
     `);
   });
 
@@ -154,7 +154,7 @@ describe('SSR', () => {
     );
 
     expect(result).toMatchInlineSnapshot(
-      `"<style data-cmpld="true" nonce="k0Mp1lEd">._3h_DQsaLVw>span{color:blue}</style><div class="_3h_DQsaLVw"><span>hello world</span></div>"`
+      `"<style data-cmpld="true" nonce="k0Mp1lEd">._3QqDuIynoA>span{color:blue}</style><div class="_3QqDuIynoA"><span>hello world</span></div>"`
     );
   });
 });

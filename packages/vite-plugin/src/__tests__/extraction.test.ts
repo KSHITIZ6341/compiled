@@ -30,7 +30,7 @@ describe('CSS Extraction', () => {
       if (result && typeof result === 'object' && 'code' in result) {
         // In extract mode, the code should not include the style rules inline
         // but should still have the class names
-        expect(result.code).toMatch(/_syaz|_1wyb/);
+        expect(result.code).toMatch(/_[0-9a-zA-Z]{10}/);
       }
     });
 
@@ -493,14 +493,14 @@ describe('CSS Extraction', () => {
       expect(css).toMatchInlineSnapshot(`
         ".cc-zynl4g{background-color:gray}
         .cc-xqwn6b{color:red}
+        ._0Of8r2UNDJ{padding-top:4px}
+        ._0adFHsJg58{margin-right:8px}
+        ._1DCdHiJg58{margin-bottom:8px}
+        ._1ZnuxbUNDJ{padding-right:4px}
+        ._1wydGWUNDJ{padding-bottom:4px}
         ._2XsHFMJg58{margin-left:8px}
         ._2Zuz6QUNDJ{padding-left:4px}
-        ._313842Jg58{margin-top:8px}
-        ._0adFHsJg58{margin-right:8px}
-        ._0Ig7VkIH63{padding-top:4px}
-        ._1jhExGIH63{padding-bottom:4px}
-        ._1DCdHiJg58{margin-bottom:8px}
-        ._1ZnuxbUNDJ{padding-right:4px}"
+        ._313842Jg58{margin-top:8px}"
       `);
     });
 
