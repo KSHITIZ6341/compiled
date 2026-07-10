@@ -1,12 +1,14 @@
+import { ATOMIC_GROUP_HASH_LENGTH } from '@compiled/utils';
+
 import { isServerEnvironment } from './is-server-environment.js';
 
 const UNDERSCORE_UNICODE = 95;
 
 /**
- * This length includes the underscore,
- * e.g. `"_1s4A"` would be a valid atomic group hash.
+ * This length includes the leading underscore prefix,
+ * e.g. `"_1s4A2b"` would be a valid atomic group hash (6 chars + 1 underscore = 7).
  */
-const ATOMIC_GROUP_LENGTH = 5;
+const ATOMIC_GROUP_LENGTH = ATOMIC_GROUP_HASH_LENGTH + 1;
 
 /**
  * Memoize the result of ac so if it is called with the same args, it returns immediately.
@@ -77,7 +79,8 @@ export function ac(
       for (let x = 0; x < groups.length; x++) {
         const atomic = groups[x];
         const isAtomic = atomic.charCodeAt(0) === UNDERSCORE_UNICODE;
-        const isCompressed = isAtomic && atomic.charCodeAt(5) === UNDERSCORE_UNICODE;
+        const isCompressed =
+          isAtomic && atomic.charCodeAt(ATOMIC_GROUP_LENGTH) === UNDERSCORE_UNICODE;
 
         const atomicGroupName = isAtomic ? atomic.slice(0, ATOMIC_GROUP_LENGTH) : atomic;
         atomicGroups.set(

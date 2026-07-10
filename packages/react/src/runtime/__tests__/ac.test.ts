@@ -11,53 +11,53 @@ describe('ac', () => {
     ['should remove undefined', ['foo', 'bar', undefined], 'foo bar'],
     [
       'should ensure the last atomic declaration of a single group wins',
-      ['_aaaabbbb', '_aaaacccc'],
-      '_aaaacccc',
+      ['_aaaaaabbbb', '_aaaaaacccc'],
+      '_aaaaaacccc',
     ],
     [
       'should ensure the last atomic declaration of a single group with short class name wins',
-      ['_aaaabbbb', '_aaaacccc', '_aaaa_a'],
+      ['_aaaaaabbbb', '_aaaaaacccc', '_aaaaaa_a'],
       'a',
     ],
     [
       'should ensure the last atomic declaration of many single groups wins',
-      ['_aaaabbbb', '_aaaacccc', '_aaaadddd', '_aaaaeeee'],
-      '_aaaaeeee',
+      ['_aaaaaabbbb', '_aaaaaacccc', '_aaaaaadddd', '_aaaaaaeeee'],
+      '_aaaaaaeeee',
     ],
     [
       'should ensure the last atomic declaration of many single groups with short class name wins',
-      ['_aaaabbbb', '_aaaacccc', '_aaaa_a', '_aaaa_b'],
+      ['_aaaaaabbbb', '_aaaaaacccc', '_aaaaaa_a', '_aaaaaa_b'],
       'b',
     ],
     [
       'should ensure the last atomic declaration of a multi group wins',
-      ['_aaaabbbb _aaaacccc'],
-      '_aaaacccc',
+      ['_aaaaaabbbb _aaaaaacccc'],
+      '_aaaaaacccc',
     ],
     [
       'should ensure the last atomic declaration of a multi group with short class name wins',
-      ['_aaaa_e', '_aaaabbbb _aaaacccc'],
-      '_aaaacccc',
+      ['_aaaaaa_e', '_aaaaaabbbb _aaaaaacccc'],
+      '_aaaaaacccc',
     ],
     [
       'should ensure the last atomic declaration of many multi groups wins',
-      ['_aaaabbbb _aaaacccc _aaaadddd _aaaaeeee'],
-      '_aaaaeeee',
+      ['_aaaaaabbbb _aaaaaacccc _aaaaaadddd _aaaaaaeeee'],
+      '_aaaaaaeeee',
     ],
     [
       'should ensure the last atomic declaration of many multi groups with short class name wins',
-      ['_aaaabbbb', '_aaaa_a', '_bbbb_b', '_ddddcccc'],
-      'a b _ddddcccc',
+      ['_aaaaaabbbb', '_aaaaaa_a', '_bbbbbb_b', '_ddddddcccc'],
+      'a b _ddddddcccc',
     ],
     [
       'should not remove any atomic declarations if there are no duplicate groups',
-      ['_aaaabbbb', '_bbbbcccc'],
-      '_aaaabbbb _bbbbcccc',
+      ['_aaaaaabbbb', '_bbbbbcccc'],
+      '_aaaaaabbbb _bbbbbcccc',
     ],
     [
       'should not remove any atomic declarations if there are short class name and no duplicate groups',
-      ['_eeee_e', '_aaaabbbb', '_bbbbcccc'],
-      'e _aaaabbbb _bbbbcccc',
+      ['_eeeeee_e', '_aaaaaabbbb', '_bbbbbcccc'],
+      'e _aaaaaabbbb _bbbbbcccc',
     ],
     ['should not apply conditional class', [isEnabled && 'foo', 'bar'], 'bar'],
     [
@@ -67,12 +67,12 @@ describe('ac', () => {
     ],
     [
       'should ignore non atomic declarations when atomic declarations exist',
-      ['hello_there', 'hello_world', '_aaaabbbb'],
-      'hello_there hello_world _aaaabbbb',
+      ['hello_there', 'hello_world', '_aaaaaabbbb'],
+      'hello_there hello_world _aaaaaabbbb',
     ],
     [
       'should ignore non atomic declarations when atomic declarations with short class name exist',
-      ['hello_there', 'hello_world', '_aaaa_a'],
+      ['hello_there', 'hello_world', '_aaaaaa_a'],
       'hello_there hello_world a',
     ],
   ])('%s', (_, params, result) => {
@@ -80,27 +80,27 @@ describe('ac', () => {
   });
 
   it('should ensure the last atomic declaration wins if calling ax multiple times with short class names', () => {
-    expect(ac([ac(['_aaaa_b']), '_aaaa_c'])?.toString()).toEqual('c');
+    expect(ac([ac(['_aaaaaa_b']), '_aaaaaa_c'])?.toString()).toEqual('c');
   });
 });
 
 describe('memoizedAc', () => {
   it('should cache correctly', () => {
-    memoizedAc([memoizedAc(['_aaaa_b', '_aaaabbbb', 'hello_world']), '_bbbb_d', '_aaaa_e']);
+    memoizedAc([memoizedAc(['_aaaaaa_b', '_aaaaaabbbb', 'hello_world']), '_bbbbbb_d', '_aaaaaa_e']);
 
     expect(getCache()).toMatchInlineSnapshot(`
       Map {
-        "_aaaa_b _aaaabbbb hello_world" => AtomicGroups {
+        "_aaaaaa_b _aaaaaabbbb hello_world" => AtomicGroups {
           "values": Map {
-            "_aaaa" => "_aaaabbbb",
+            "_aaaaaa" => "_aaaaaabbbb",
             "hello_world" => "hello_world",
           },
         },
-        "_aaaabbbb hello_world _bbbb_d _aaaa_e" => AtomicGroups {
+        "_aaaaaabbbb hello_world _bbbbbb_d _aaaaaa_e" => AtomicGroups {
           "values": Map {
-            "_aaaa" => "e",
+            "_aaaaaa" => "e",
             "hello_world" => "hello_world",
-            "_bbbb" => "d",
+            "_bbbbbb" => "d",
           },
         },
       }
